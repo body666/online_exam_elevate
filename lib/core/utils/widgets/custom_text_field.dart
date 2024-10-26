@@ -5,23 +5,24 @@ import '../colors.dart';
 import '../text_styles.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField(
-      {super.key,
-      required this.width,
-      required this.labelText,
-      required this.hintText,
-      this.validator,
-      this.onSaved,
-      this.autovalidateMode,
-      this.textInputAction,
-      this.onEditingComplete,
-      this.controller,
-      this.focusNode,
-      this.keyboardType,
-      this.onFieldSubmitted,
-      this.obsecureText});
+  const CustomTextField({
+    super.key,
+    required this.width,
+    required this.labelText,
+    required this.hintText,
+    this.validator,
+    this.onSaved,
+    this.autovalidateMode,
+    this.textInputAction,
+    this.onEditingComplete,
+    this.controller,
+    this.focusNode,
+    this.keyboardType,
+    this.onFieldSubmitted,
+    this.obsecureText = false,
+  });
 
-  final obsecureText;
+  final bool obsecureText;
   final double width;
   final String labelText;
   final String hintText;

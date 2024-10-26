@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_exam_elevate/core/di/di.dart';
 import 'package:online_exam_elevate/core/utils/theme.dart';
-import 'package:online_exam_elevate/presentation/auth/views/login_view.dart';
-import 'package:online_exam_elevate/presentation/auth/views/sign_up_view.dart';
+import 'package:online_exam_elevate/presentation/exam/views/subject_exams_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,12 +23,12 @@ class OnlineExamApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: lightTheme,
-          home: const LoginView(),
-          initialRoute: LoginView.routeName,
-          routes: {
-            SignUpView.routeName: (context) => const SignUpView(),
-            LoginView.routeName: (context) => const LoginView(),
-          },
+          home: const SubjectExamsView(),
+          // initialRoute: LoginView.routeName,
+          // routes: {
+          //   SignUpView.routeName: (context) => const SignUpView(),
+          //   LoginView.routeName: (context) => const LoginView(),
+          // },
         );
       },
     );

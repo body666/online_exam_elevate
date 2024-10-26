@@ -4,7 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:online_exam_elevate/core/utils/colors.dart';
 import 'package:online_exam_elevate/core/utils/widgets/custom_text_field.dart';
 import 'package:online_exam_elevate/domain/usecases/auth/login_usecase.dart';
-import 'package:online_exam_elevate/presentation/auth/views/widgets/forget_pass/forget_password_view_body.dart';
+import 'package:online_exam_elevate/presentation/auth/views/forget_password_view.dart';
 import 'package:online_exam_elevate/presentation/auth/views/widgets/redirect_text_action.dart';
 import 'package:online_exam_elevate/presentation/auth/views/widgets/sign_up_view_body.dart';
 
@@ -120,15 +120,19 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                                 ),
                               ),
                             ),
-                            child: Text('Forget password?',
-                                style: AppTextStyles.style12),
+                            child: Text(
+                              'Forget password?',
+                              style: AppTextStyles.style12,
+                            ),
                           ),
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        ForgetPasswordViewBody()));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const ForgetPasswordView(),
+                              ),
+                            );
                           },
                         ),
                       ],

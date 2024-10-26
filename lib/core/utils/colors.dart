@@ -11,6 +11,9 @@ class AppColors {
   static const lightRedColor = Color(0xfff8d2d2);
   static const placeHolderColor = Color(0xffa6a6a6);
   static const blueBaseColor = Color(0xff02369C);
+  static const blue30Color = Color(0xff809ACD);
+  static const blue10Color = Color(0xffCCD7EB);
+
   static const blackBaseColor = Color(0xff0F0F0F);
   static const fillColor = Color(0xffCCD7EB);
 }

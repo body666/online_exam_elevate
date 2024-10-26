@@ -4,6 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'colors.dart';
 
 class AppTextStyles {
+  static final style20w600 = const TextStyle().copyWith(
+    fontWeight: FontWeight.w600,
+    fontSize: 20.sp,
+    color: AppColors.blackBaseColor,
+  );
   static final style20 = const TextStyle().copyWith(
     fontWeight: FontWeight.w500,
     fontSize: 20.sp,
@@ -32,6 +37,11 @@ class AppTextStyles {
   );
   static final style13 = const TextStyle().copyWith(
     fontWeight: FontWeight.w400,
+    fontSize: 13.sp,
+    color: AppColors.blackBaseColor,
+  );
+  static final style13w500 = const TextStyle().copyWith(
+    fontWeight: FontWeight.w500,
     fontSize: 13.sp,
     color: AppColors.blackBaseColor,
   );
