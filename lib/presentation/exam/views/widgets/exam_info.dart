@@ -6,8 +6,13 @@ import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/text_styles.dart';
 
 class ExamInfo extends StatelessWidget {
+  final String? title;
+  final int? numberOfQuestions, duration;
   const ExamInfo({
     super.key,
+    required this.title,
+    required this.numberOfQuestions,
+    required this.duration,
   });
 
   @override
@@ -26,12 +31,12 @@ class ExamInfo extends StatelessWidget {
               width: 8.w,
             ),
             Text(
-              'Languages',
+              'Assessment',
               style: AppTextStyles.style20w600,
             ),
             const Spacer(),
             Text(
-              '30 Minutes',
+              '$duration Minutes',
               style: AppTextStyles.style13.copyWith(
                 color: AppColors.blueBaseColor,
               ),
@@ -44,7 +49,7 @@ class ExamInfo extends StatelessWidget {
         Row(
           children: [
             Text(
-              'High level',
+              title.toString(),
               style: AppTextStyles.style16,
             ),
             SizedBox(
@@ -59,7 +64,7 @@ class ExamInfo extends StatelessWidget {
               width: 8.w,
             ),
             Text(
-              '20 Question',
+              '$numberOfQuestions Question',
               style: AppTextStyles.style13.copyWith(
                 color: AppColors.greyColor,
               ),

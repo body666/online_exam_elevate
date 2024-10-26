@@ -10,28 +10,36 @@ class EnterVerificationViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 16.w,
-        vertical: 10.h,
+    return SingleChildScrollView(
+      padding: EdgeInsets.only(
+        bottom: 16.h,
       ),
       child: Column(
         children: [
           const CustomAppBar(
             title: 'Password',
           ),
-          SizedBox(
-            height: 38.h,
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 38.h,
+                ),
+                const PageTitleSubtitleColumn(
+                  title: 'Email verification',
+                  subTitle:
+                      'Please enter your code that has been\n sent to your email address',
+                ),
+                SizedBox(
+                  height: 30.h,
+                ),
+                const OtpSection(),
+              ],
+            ),
           ),
-          const PageTitleSubtitleColumn(
-            title: 'Email verification',
-            subTitle:
-                'Please enter your code that has been sent\n to your email address',
-          ),
-          SizedBox(
-            height: 30.h,
-          ),
-          const OtpSection(),
         ],
       ),
     );

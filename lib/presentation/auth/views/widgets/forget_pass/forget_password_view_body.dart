@@ -50,62 +50,71 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
           }
         },
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.w,
-            vertical: 10.h,
+          padding: EdgeInsets.only(
+            bottom: 16.w,
           ),
           child: Column(
             children: [
               const CustomAppBar(
                 title: 'Password',
               ),
-              SizedBox(
-                height: 38.h,
-              ),
-              const PageTitleSubtitleColumn(
-                title: 'ForgetPassword',
-                subTitle:
-                    'Please enter your email associated to\n your account',
-              ),
-              SizedBox(
-                height: 30.h,
-              ),
-              Form(
-                key: _formKey,
-                child: BlocBuilder<ForgetPassViewModel, ForgetPassState>(
-                  builder: (context, state) {
-                    return CustomTextField(
-                      onEditingComplete: submit,
-                      autovalidateMode: _forgetPassViewModel.autovalidateMode,
-                      width: double.infinity,
-                      labelText: 'Email',
-                      hintText: 'Enter your email',
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          _forgetPassViewModel.activateValidationMode();
-                          return 'Please enter a valid email';
-                        }
-                        if (!RegExp(r'@').hasMatch(value)) {
-                          _forgetPassViewModel.activateValidationMode();
-                          return 'This email is not valid';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        _forgetPassViewModel.saveEmail(value!);
-                      },
-                    );
-                  },
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16.w,
                 ),
-              ),
-              SizedBox(
-                height: 45.h,
-              ),
-              DefaultAppButton(
-                text: 'Continue',
-                onPressed: () {
-                  submit();
-                },
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 38.h,
+                    ),
+                    const PageTitleSubtitleColumn(
+                      title: 'ForgetPassword',
+                      subTitle:
+                          'Please enter your email associated to\n your account',
+                    ),
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    Form(
+                      key: _formKey,
+                      child: BlocBuilder<ForgetPassViewModel, ForgetPassState>(
+                        builder: (context, state) {
+                          return CustomTextField(
+                            onEditingComplete: submit,
+                            autovalidateMode:
+                                _forgetPassViewModel.autovalidateMode,
+                            width: double.infinity,
+                            labelText: 'Email',
+                            hintText: 'Enter your email',
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                _forgetPassViewModel.activateValidationMode();
+                                return 'Please enter a valid email';
+                              }
+                              if (!RegExp(r'@').hasMatch(value)) {
+                                _forgetPassViewModel.activateValidationMode();
+                                return 'This email is not valid';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _forgetPassViewModel.saveEmail(value!);
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 45.h,
+                    ),
+                    DefaultAppButton(
+                      text: 'Continue',
+                      onPressed: () {
+                        submit();
+                      },
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

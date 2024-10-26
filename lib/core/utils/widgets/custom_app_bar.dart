@@ -14,12 +14,14 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       children: [
         const CustomBackButton(),
-        SizedBox(
-          width: 6.w,
-        ),
-        Text(
-          title,
-          style: AppTextStyles.style20,
+        Padding(
+          padding: EdgeInsets.only(
+            top: 8.h,
+          ),
+          child: Text(
+            title,
+            style: AppTextStyles.style20,
+          ),
         )
       ],
     );

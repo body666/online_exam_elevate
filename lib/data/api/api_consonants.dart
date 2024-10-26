@@ -5,4 +5,5 @@ class ApiConsonants {
   static const forgetPassEndPoint = 'api/v1/auth/forgotPassword';
   static const verifyResetCodeEndPoint = 'api/v1/auth/verifyResetCode';
   static const resetPasswordEndPoint = 'api/v1/auth/resetPassword';
+  static const fetchSubjectExamsEndPoint = 'api/v1/exams';
 }

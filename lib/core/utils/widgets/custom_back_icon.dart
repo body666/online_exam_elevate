@@ -14,10 +14,17 @@ class CustomBackButton extends StatelessWidget {
       onTap: () {
         Navigator.pop(context);
       },
-      child: Icon(
-        Icons.arrow_back_ios,
-        color: AppColors.blackBaseColor,
-        size: 20.h,
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: 8.h,
+          left: 16.w,
+          right: 6.w,
+        ),
+        child: Icon(
+          Icons.arrow_back_ios,
+          color: AppColors.blackBaseColor,
+          size: 20.h,
+        ),
       ),
     );
   }

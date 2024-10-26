@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_exam_elevate/core/utils/colors.dart';
 import 'package:online_exam_elevate/core/utils/text_styles.dart';
+import 'package:online_exam_elevate/domain/entities/exam.dart';
 import 'package:online_exam_elevate/presentation/exam/views/exam_details_view.dart';
 
 import '../../../../core/utils/assets.dart';
 
 class ExamItem extends StatelessWidget {
-  const ExamItem({super.key});
-
+  const ExamItem({super.key, required this.exam});
+  final Exam exam;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,7 +17,9 @@ class ExamItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => const ExamDetailsView(),
+            builder: (_) => ExamDetailsView(
+              exam: exam,
+            ),
           ),
         );
       },
@@ -53,14 +56,14 @@ class ExamItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'High level',
+                    exam.title.toString(),
                     style: AppTextStyles.style16,
                   ),
                   SizedBox(
                     height: 2.h,
                   ),
                   Text(
-                    '20 Question',
+                    '${exam.numberOfQuestions} Question',
                     style: AppTextStyles.style13.copyWith(
                       color: AppColors.greyColor,
                     ),
@@ -76,7 +79,7 @@ class ExamItem extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                '30 Minutes',
+                '${exam.duration} Minutes',
                 style: AppTextStyles.style13.copyWith(
                   color: AppColors.blueBaseColor,
                 ),

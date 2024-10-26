@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:online_exam_elevate/core/Result/custom_exceptions.dart';
 
-import '../../../Result/result.dart';
+import '../../core/Result/result.dart';
 
 Future<Result<T>> executeApi<T>(Future<T> Function() apiCall) async {
   try {

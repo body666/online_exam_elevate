@@ -11,27 +11,35 @@ class ResetPasswordViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(
-        horizontal: 16.w,
-        vertical: 10.h,
+      padding: EdgeInsets.only(
+        bottom: 16.w,
       ),
       child: Column(
         children: [
           const CustomAppBar(
             title: 'Password',
           ),
-          SizedBox(
-            height: 38.h,
-          ),
-          const PageTitleSubtitleColumn(
-            title: 'Reset password',
-            subTitle:
-                'Password must not be empty and must contain\n 6 characters with upper case letter and one\n number at least ',
-          ),
-          SizedBox(
-            height: 28.h,
-          ),
-          const ResetPassSection()
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 38.h,
+                ),
+                const PageTitleSubtitleColumn(
+                  title: 'Reset password',
+                  subTitle:
+                      'Password must not be empty and must\n contain 6 characters with upper case\n letter and one number at least ',
+                ),
+                SizedBox(
+                  height: 28.h,
+                ),
+                const ResetPassSection(),
+              ],
+            ),
+          )
         ],
       ),
     );

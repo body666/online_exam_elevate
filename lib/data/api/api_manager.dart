@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:online_exam_elevate/core/utils/services/api/api_consonants.dart';
+import 'package:online_exam_elevate/data/api/api_consonants.dart';
 import 'package:online_exam_elevate/data/models/response/forget_password_response.dart';
 import 'package:online_exam_elevate/data/models/response/reset_pass_response.dart';
+import 'package:online_exam_elevate/data/models/response/subject_exams_response/subject_exams_response.dart';
 
-import '../../../../data/models/request/register_request.dart';
-import '../../../../data/models/response/auth_response.dart';
+import '../models/request/register_request.dart';
+import '../models/response/auth_response.dart';
 
 @Singleton()
 class ApiManager {
@@ -79,5 +80,22 @@ class ApiManager {
     );
     final resetPassResponse = ResetPassResponse.fromJson(response.data);
     return resetPassResponse;
+  }
+
+  Future<SubjectExamsResponse?> fetchSubjectExams(String subject) async {
+    final response = await _dio.get(
+      ApiConsonants.fetchSubjectExamsEndPoint,
+      queryParameters: {
+        'subject': subject,
+      },
+      options: Options(
+        headers: {
+          'token':
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MDAxNjkyZjg3YzQ4NjYzYWVlM2FkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyODA4Mjc5MX0.s7uFfpSqEfrTz9un6WL_YUM6_-3-_-KwHloU4VtDBeE',
+        },
+      ),
+    );
+    final subjectExamsResponse = SubjectExamsResponse.fromJson(response.data);
+    return subjectExamsResponse;
   }
 }
