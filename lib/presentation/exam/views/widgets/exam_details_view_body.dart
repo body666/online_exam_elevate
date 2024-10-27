@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_exam_elevate/core/utils/widgets/custom_back_icon.dart';
 import 'package:online_exam_elevate/domain/entities/exam.dart';
+import 'package:online_exam_elevate/presentation/exam/views/quiz_view.dart';
 
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/widgets/default_app_button.dart';
@@ -50,7 +51,16 @@ class ExamDetailsViewBody extends StatelessWidget {
               ),
               DefaultAppButton(
                 text: 'Start',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => QuizView(
+                        exam: exam,
+                      ),
+                    ),
+                  );
+                },
               ),
             ],
           ),

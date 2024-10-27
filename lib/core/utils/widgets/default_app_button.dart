@@ -5,11 +5,16 @@ import '../colors.dart';
 import '../text_styles.dart';
 
 class DefaultAppButton extends StatelessWidget {
-  const DefaultAppButton({super.key, this.onPressed, required this.text});
+  const DefaultAppButton({
+    super.key,
+    this.onPressed,
+    required this.text,
+    this.textStyle,
+  });
 
   final void Function()? onPressed;
   final String text;
-
+  final TextStyle? textStyle;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -30,9 +35,10 @@ class DefaultAppButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: AppTextStyles.style16.copyWith(
-            color: AppColors.whiteColor,
-          ),
+          style: textStyle ??
+              AppTextStyles.style16.copyWith(
+                color: AppColors.whiteColor,
+              ),
         ),
       ),
     );
