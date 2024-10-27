@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_exam_elevate/core/utils/text_styles.dart';
-import 'package:online_exam_elevate/presentation/exam/views/widgets/answer_selection_item.dart';
 
+import 'answer_selection_item.dart';
 import 'quiz_buttons_row.dart';
 import 'time_out_dialog.dart';
 

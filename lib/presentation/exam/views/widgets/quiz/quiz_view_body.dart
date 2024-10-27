@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_exam_elevate/domain/entities/exam.dart';
-import 'package:online_exam_elevate/presentation/exam/views/widgets/answers_section.dart';
-import 'package:online_exam_elevate/presentation/exam/views/widgets/questions_slider_section.dart';
-import 'package:online_exam_elevate/presentation/exam/views/widgets/quiz_timer_section.dart';
+import 'package:online_exam_elevate/presentation/exam/views/widgets/quiz/answers_section.dart';
+import 'package:online_exam_elevate/presentation/exam/views/widgets/quiz/questions_slider_section.dart';
+import 'package:online_exam_elevate/presentation/exam/views/widgets/quiz/quiz_timer_section.dart';
 
 class QuizViewBody extends StatelessWidget {
   final Exam exam;

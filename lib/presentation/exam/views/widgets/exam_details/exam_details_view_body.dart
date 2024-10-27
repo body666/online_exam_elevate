@@ -4,8 +4,8 @@ import 'package:online_exam_elevate/core/utils/widgets/custom_back_icon.dart';
 import 'package:online_exam_elevate/domain/entities/exam.dart';
 import 'package:online_exam_elevate/presentation/exam/views/quiz_view.dart';
 
-import '../../../../core/utils/colors.dart';
-import '../../../../core/utils/widgets/default_app_button.dart';
+import '../../../../../core/utils/colors.dart';
+import '../../../../../core/utils/widgets/default_app_button.dart';
 import 'exam_info.dart';
 import 'exam_instructions.dart';
 

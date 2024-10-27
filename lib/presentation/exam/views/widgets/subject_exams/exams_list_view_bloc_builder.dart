@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_exam_elevate/core/utils/colors.dart';
 import 'package:online_exam_elevate/core/utils/helper_functions.dart';
 
-import '../../../../core/utils/widgets/failure_place_holder.dart';
-import '../../view_model/subject_exams/subject_exams_view_model.dart';
+import '../../../../../core/utils/widgets/failure_place_holder.dart';
+import '../../../view_model/subject_exams/subject_exams_view_model.dart';
 import 'exam_item.dart';
 
 class ExamsListViewBlocBuilder extends StatefulWidget {

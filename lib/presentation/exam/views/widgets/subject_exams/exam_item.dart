@@ -5,7 +5,7 @@ import 'package:online_exam_elevate/core/utils/text_styles.dart';
 import 'package:online_exam_elevate/domain/entities/exam.dart';
 import 'package:online_exam_elevate/presentation/exam/views/exam_details_view.dart';
 
-import '../../../../core/utils/assets.dart';
+import '../../../../../core/utils/assets.dart';
 
 class ExamItem extends StatelessWidget {
   const ExamItem({super.key, required this.exam});

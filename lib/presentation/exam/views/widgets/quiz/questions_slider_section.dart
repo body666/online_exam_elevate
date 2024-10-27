@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-import '../../../../core/utils/colors.dart';
-import '../../../../core/utils/text_styles.dart';
+import '../../../../../core/utils/colors.dart';
+import '../../../../../core/utils/text_styles.dart';
 
 class QuestionsSliderSection extends StatelessWidget {
   final int numberOfQuestions;
