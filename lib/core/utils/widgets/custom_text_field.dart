@@ -19,7 +19,9 @@ class CustomTextField extends StatelessWidget {
       this.focusNode,
       this.keyboardType,
       this.onFieldSubmitted,
-      this.obsecureText});
+    this.obsecureText,
+    required this.cursorColor,
+  });
 
   final obsecureText;
   final double width;
@@ -34,12 +36,14 @@ class CustomTextField extends StatelessWidget {
   final FocusNode? focusNode;
   final TextInputType? keyboardType;
   final void Function(String)? onFieldSubmitted;
+  final Color cursorColor;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
       child: TextFormField(
+        cursorColor: cursorColor,
         keyboardType: keyboardType,
         onFieldSubmitted: onFieldSubmitted,
         controller: controller,

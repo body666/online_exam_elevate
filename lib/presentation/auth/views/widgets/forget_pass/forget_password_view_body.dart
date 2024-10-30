@@ -10,6 +10,7 @@ import 'package:online_exam_elevate/presentation/auth/views/enter_verfication_vi
 import '../../../../../../core/utils/widgets/custom_app_bar.dart';
 import '../../../../../../core/utils/widgets/custom_text_field.dart';
 import '../../../../../../core/utils/widgets/default_app_button.dart';
+import '../../../../../core/utils/colors.dart';
 import '../../../view_model/forget_pass/forget_pass_view_model.dart';
 import 'page_title_subtitle_column.dart';
 
@@ -75,6 +76,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                 child: BlocBuilder<ForgetPassViewModel, ForgetPassState>(
                   builder: (context, state) {
                     return CustomTextField(
+                      cursorColor: AppColors.blackBaseColor,
                       onEditingComplete: submit,
                       autovalidateMode: _forgetPassViewModel.autovalidateMode,
                       width: double.infinity,

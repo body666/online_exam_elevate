@@ -8,11 +8,9 @@ import 'package:online_exam_elevate/core/utils/services/cache_service.dart';
 import 'package:online_exam_elevate/domain/usecases/auth/forget_password_usecase.dart';
 
 import 'forget_pass_state.dart';
-
 @injectable
 class ForgetPassViewModel extends Cubit<ForgetPassState> {
   final ForgetPasswordUseCase _forgetPasswordUseCase;
-
   ForgetPassViewModel(this._forgetPasswordUseCase) : super(ForgetPassInitial());
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;

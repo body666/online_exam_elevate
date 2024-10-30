@@ -11,6 +11,7 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../../data/api/api_manager.dart' as _i442;
 import '../../data/contracts/auth/offline_data_source.dart' as _i886;
 import '../../data/contracts/auth/online_data_source.dart' as _i976;
 import '../../data/datasourcses/auth/offline_data_source_impl.dart' as _i698;
@@ -24,11 +25,14 @@ import '../../domain/usecases/auth/reset_password_usecase.dart' as _i658;
 import '../../domain/usecases/auth/verify_reset_code_usecase.dart' as _i938;
 import '../../presentation/auth/view_model/forget_pass/forget_pass_view_model.dart'
     as _i186;
+import '../../presentation/auth/view_model/login/login_view_model.dart'
+    as _i100;
 import '../../presentation/auth/view_model/reset_pass/reset_pass_view_model.dart'
     as _i897;
+import '../../presentation/auth/view_model/sign_up/sign_up_view_model.dart'
+    as _i915;
 import '../../presentation/auth/view_model/verify_code/verify_code_view_model.dart'
     as _i909;
-import '../utils/services/api/api_manager.dart' as _i74;
 import '../utils/services/cache_service.dart' as _i743;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -42,12 +46,12 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.singleton<_i74.ApiManager>(() => _i74.ApiManager());
     gh.singleton<_i743.CacheService>(() => _i743.CacheService());
+    gh.singleton<_i442.ApiManager>(() => _i442.ApiManager());
+    gh.factory<_i976.AuthOnlineDataSource>(
+        () => _i341.AuthOnlineDataSourceImpl(gh<_i442.ApiManager>()));
     gh.factory<_i886.AuthOfflineDataSource>(
         () => _i698.AuthOfflineDataSourceImpl());
-    gh.factory<_i976.AuthOnlineDataSource>(
-        () => _i341.AuthOnlineDataSourceImpl(gh<_i74.ApiManager>()));
     gh.factory<_i876.AuthRepo>(() => _i291.AuthRepoImpl(
           onlineDataSource: gh<_i976.AuthOnlineDataSource>(),
           offlineDataSource: gh<_i886.AuthOfflineDataSource>(),
@@ -62,6 +66,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i658.ResetPasswordUseCase(gh<_i876.AuthRepo>()));
     gh.factory<_i938.VerifyResetCodeUseCase>(
         () => _i938.VerifyResetCodeUseCase(gh<_i876.AuthRepo>()));
+    gh.factory<_i915.SignUpViewModel>(
+        () => _i915.SignUpViewModel(gh<_i659.RegisterUseCase>()));
     gh.factory<_i186.ForgetPassViewModel>(
         () => _i186.ForgetPassViewModel(gh<_i612.ForgetPasswordUseCase>()));
     gh.factory<_i909.VerifyCodeViewModel>(() => _i909.VerifyCodeViewModel(
@@ -70,6 +76,8 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i897.ResetPassViewModel>(
         () => _i897.ResetPassViewModel(gh<_i658.ResetPasswordUseCase>()));
+    gh.factory<_i100.LoginViewModel>(
+        () => _i100.LoginViewModel(gh<_i461.LoginUseCase>()));
     return this;
   }
 }

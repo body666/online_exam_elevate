@@ -10,6 +10,7 @@ import 'package:online_exam_elevate/core/utils/snackbars.dart';
 import 'package:online_exam_elevate/presentation/auth/view_model/reset_pass/reset_pass_state.dart';
 import 'package:online_exam_elevate/presentation/auth/view_model/reset_pass/reset_pass_view_model.dart';
 
+import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/widgets/custom_text_field.dart';
 import '../../../../../core/utils/widgets/default_app_button.dart';
 
@@ -72,6 +73,7 @@ class _ResetPassSectionState extends State<ResetPassSection> {
           child: Column(
             children: [
               CustomTextField(
+                cursorColor: AppColors.blackBaseColor,
                 controller: _newPassController,
                 keyboardType: TextInputType.visiblePassword,
                 textInputAction: TextInputAction.next,
@@ -86,6 +88,7 @@ class _ResetPassSectionState extends State<ResetPassSection> {
                 height: 22.h,
               ),
               CustomTextField(
+                cursorColor: AppColors.blackBaseColor,
                 controller: _confirmPassController,
                 focusNode: _confirmPassFocusNode,
                 keyboardType: TextInputType.visiblePassword,

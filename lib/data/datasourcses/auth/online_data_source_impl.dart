@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:online_exam_elevate/core/utils/services/api/api_extensions.dart';
-import 'package:online_exam_elevate/core/utils/services/api/api_manager.dart';
+import 'package:online_exam_elevate/data/api/api_extensions.dart';
+import 'package:online_exam_elevate/data/api/api_manager.dart';
 import 'package:online_exam_elevate/data/contracts/auth/online_data_source.dart';
 import 'package:online_exam_elevate/data/models/dtos/user_dto.dart';
 import 'package:online_exam_elevate/data/models/request/register_request.dart';
@@ -65,10 +65,7 @@ class AuthOnlineDataSourceImpl implements AuthOnlineDataSource {
   }
 
   @override
-  Future<Result<User?>> resetPassword({
-    required String email,
-    required String newPassword,
-  }) {
+  Future<Result<User?>> resetPassword({required String email, required String newPassword}) {
     return executeApi<User>(
       () async {
         final resetPassRes = await _apiManager.resetPassword(

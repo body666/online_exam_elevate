@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:online_exam_elevate/core/utils/services/api/api_consonants.dart';
+import 'package:online_exam_elevate/data/api/api_constants.dart';
 import 'package:online_exam_elevate/data/models/response/forget_password_response.dart';
 import 'package:online_exam_elevate/data/models/response/reset_pass_response.dart';
 
-import '../../../../data/models/request/register_request.dart';
-import '../../../../data/models/response/auth_response.dart';
+import '../models/request/register_request.dart';
+import '../models/response/auth_response.dart';
 
 @Singleton()
 class ApiManager {
