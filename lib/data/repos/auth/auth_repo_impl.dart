@@ -1,6 +1,5 @@
 import 'package:injectable/injectable.dart';
 import 'package:online_exam_elevate/core/Result/result.dart';
-import 'package:online_exam_elevate/data/contracts/auth/offline_data_source.dart';
 import 'package:online_exam_elevate/data/contracts/auth/online_data_source.dart';
 import 'package:online_exam_elevate/data/models/request/register_request.dart';
 import 'package:online_exam_elevate/domain/entities/user.dart';
@@ -10,13 +9,8 @@ import '../../../domain/repos/auth/auth_repo.dart';
 @Injectable(as: AuthRepo)
 class AuthRepoImpl implements AuthRepo {
   final AuthOnlineDataSource _onlineDataSource;
-  final AuthOfflineDataSource _offlineDataSource;
 
-  AuthRepoImpl(
-      {required AuthOnlineDataSource onlineDataSource,
-      required AuthOfflineDataSource offlineDataSource})
-      : _onlineDataSource = onlineDataSource,
-        _offlineDataSource = offlineDataSource;
+  AuthRepoImpl(this._onlineDataSource);
 
   @override
   Future<Result<User?>> login(

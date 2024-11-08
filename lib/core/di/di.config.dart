@@ -8,17 +8,16 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 import '../../data/api/api_manager.dart' as _i442;
 import '../../data/contracts/auth/offline_data_source.dart' as _i886;
 import '../../data/contracts/auth/online_data_source.dart' as _i976;
-import '../../data/contracts/exam/offline_data_source.dart' as _i949;
 import '../../data/contracts/exam/online_data_source.dart' as _i875;
 import '../../data/datasourcses/auth/offline_data_source_impl.dart' as _i698;
 import '../../data/datasourcses/auth/online_data_source_impl.dart' as _i341;
-import '../../data/datasourcses/exam/offline_data_source_impl.dart' as _i123;
 import '../../data/datasourcses/exam/online_data_source_impl.dart' as _i568;
 import '../../data/repos/auth/auth_repo_impl.dart' as _i291;
 import '../../data/repos/exam/exam_repo_impl.dart' as _i1056;
@@ -52,27 +51,16 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     gh.singleton<_i743.CacheService>(() => _i743.CacheService());
-    gh.singleton<_i442.ApiManager>(() => _i442.ApiManager());
-    gh.factory<_i875.ExamOnlineDataSource>(
-        () => _i568.ExamOnlineDataSourceImpl(gh<_i442.ApiManager>()));
-    gh.factory<_i949.ExamOfflineDataSource>(
-        () => _i123.ExamOfflineDataSourceImpl());
-    gh.factory<_i976.AuthOnlineDataSource>(
-        () => _i341.AuthOnlineDataSourceImpl(gh<_i442.ApiManager>()));
     gh.factory<_i886.AuthOfflineDataSource>(
         () => _i698.AuthOfflineDataSourceImpl());
-    gh.factory<_i1029.ExamRepo>(() => _i1056.ExamRepoImpl(
-          gh<_i875.ExamOnlineDataSource>(),
-          gh<_i949.ExamOfflineDataSource>(),
-        ));
-    gh.factory<_i876.AuthRepo>(() => _i291.AuthRepoImpl(
-          onlineDataSource: gh<_i976.AuthOnlineDataSource>(),
-          offlineDataSource: gh<_i886.AuthOfflineDataSource>(),
-        ));
-    gh.factory<_i569.FetchSubjectExamsUseCase>(
-        () => _i569.FetchSubjectExamsUseCase(gh<_i1029.ExamRepo>()));
-    gh.factory<_i1041.SubjectExamsViewModel>(() =>
-        _i1041.SubjectExamsViewModel(gh<_i569.FetchSubjectExamsUseCase>()));
+    gh.singleton<_i442.ApiManager>(
+        () => _i442.ApiManager(dio: gh<_i361.Dio>()));
+    gh.factory<_i875.ExamOnlineDataSource>(
+        () => _i568.ExamOnlineDataSourceImpl(gh<_i442.ApiManager>()));
+    gh.factory<_i976.AuthOnlineDataSource>(
+        () => _i341.AuthOnlineDataSourceImpl(gh<_i442.ApiManager>()));
+    gh.factory<_i876.AuthRepo>(
+        () => _i291.AuthRepoImpl(gh<_i976.AuthOnlineDataSource>()));
     gh.factory<_i612.ForgetPasswordUseCase>(
         () => _i612.ForgetPasswordUseCase(gh<_i876.AuthRepo>()));
     gh.factory<_i461.LoginUseCase>(
@@ -83,12 +71,20 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i658.ResetPasswordUseCase(gh<_i876.AuthRepo>()));
     gh.factory<_i938.VerifyResetCodeUseCase>(
         () => _i938.VerifyResetCodeUseCase(gh<_i876.AuthRepo>()));
-    gh.factory<_i186.ForgetPassViewModel>(
-        () => _i186.ForgetPassViewModel(gh<_i612.ForgetPasswordUseCase>()));
+    gh.factory<_i1029.ExamRepo>(
+        () => _i1056.ExamRepoImpl(gh<_i875.ExamOnlineDataSource>()));
+    gh.factory<_i569.FetchSubjectExamsUseCase>(
+        () => _i569.FetchSubjectExamsUseCase(gh<_i1029.ExamRepo>()));
     gh.factory<_i909.VerifyCodeViewModel>(() => _i909.VerifyCodeViewModel(
           gh<_i938.VerifyResetCodeUseCase>(),
           gh<_i612.ForgetPasswordUseCase>(),
         ));
+    gh.factory<_i186.ForgetPassViewModel>(() => _i186.ForgetPassViewModel(
+          gh<_i612.ForgetPasswordUseCase>(),
+          gh<_i743.CacheService>(),
+        ));
+    gh.factory<_i1041.SubjectExamsViewModel>(() =>
+        _i1041.SubjectExamsViewModel(gh<_i569.FetchSubjectExamsUseCase>()));
     gh.factory<_i897.ResetPassViewModel>(
         () => _i897.ResetPassViewModel(gh<_i658.ResetPasswordUseCase>()));
     return this;

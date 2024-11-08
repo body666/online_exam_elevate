@@ -10,15 +10,9 @@ import '../models/response/auth_response.dart';
 
 @Singleton()
 class ApiManager {
-  late Dio _dio;
+  final Dio _dio;
 
-  ApiManager() {
-    _dio = Dio(
-      BaseOptions(
-        baseUrl: ApiConsonants.baseUrl,
-      ),
-    );
-  }
+  ApiManager({required Dio dio}) : _dio = dio;
 
   Future<AuthResponse?> login({
     required String email,
@@ -46,13 +40,14 @@ class ApiManager {
   }
 
   Future<ForgetPasswordResponse?> forgetPassword(String email) async {
+    ForgetPasswordResponse? forgetPassResponse;
     final response = await _dio.post(
       ApiConsonants.forgetPassEndPoint,
       data: {
         "email": email,
       },
     );
-    final forgetPassResponse = ForgetPasswordResponse.fromJson(response.data);
+    forgetPassResponse = ForgetPasswordResponse.fromJson(response.data);
     return forgetPassResponse;
   }
 
@@ -71,6 +66,7 @@ class ApiManager {
     required String email,
     required String newPassword,
   }) async {
+    ResetPassResponse? resetPassResponse;
     final response = await _dio.put(
       ApiConsonants.resetPasswordEndPoint,
       data: {
@@ -78,11 +74,12 @@ class ApiManager {
         "newPassword": newPassword,
       },
     );
-    final resetPassResponse = ResetPassResponse.fromJson(response.data);
+    resetPassResponse = ResetPassResponse.fromJson(response.data);
     return resetPassResponse;
   }
 
   Future<SubjectExamsResponse?> fetchSubjectExams(String subject) async {
+    SubjectExamsResponse? subjectExamsResponse;
     final response = await _dio.get(
       ApiConsonants.fetchSubjectExamsEndPoint,
       queryParameters: {
@@ -95,7 +92,7 @@ class ApiManager {
         },
       ),
     );
-    final subjectExamsResponse = SubjectExamsResponse.fromJson(response.data);
+    subjectExamsResponse = SubjectExamsResponse.fromJson(response.data);
     return subjectExamsResponse;
   }
 }

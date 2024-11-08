@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/subject_exams_view_body.dart';
+import 'widgets/subject_exams/subject_exams_view_body.dart';
 
 class SubjectExamsView extends StatelessWidget {
   const SubjectExamsView({super.key});

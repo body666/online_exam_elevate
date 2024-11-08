@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   bloc: ^8.1.4
+  bloc_test: ^9.1.7
   cupertino_icons: ^1.0.6
   dio: ^5.7.0
   flutter:
@@ -39,6 +40,7 @@ dependencies:
   get_it: ^8.0.0
   google_fonts: ^6.2.1
   injectable: ^2.5.0
+  mockito: ^5.4.4
   percent_indicator: ^4.2.3
   shared_preferences: ^2.3.2
 
@@ -48,6 +50,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   injectable_generator: ^2.6.2
+  test: ^1.25.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

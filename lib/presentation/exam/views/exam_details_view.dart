@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_exam_elevate/presentation/exam/views/widgets/exam_details_view_body.dart';
+import 'package:online_exam_elevate/presentation/exam/views/widgets/exam_details/exam_details_view_body.dart';
 
 import '../../../domain/entities/exam.dart';
 
